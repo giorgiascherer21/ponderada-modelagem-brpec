@@ -37,15 +37,11 @@ Dessa forma, os RNFs permitem estabelecer critérios mensuráveis e verificávei
 
 | Eixo | Requisito | Métrica / Critério (Testável) |
 |------|----------|------------------------------|
-| Usabilidade | RNF01: O sistema deve permitir que o Capataz registre uma movimentação com baixa complexidade operacional | Registro concluído em no máximo 3 interações obrigatórias, sem navegação entre telas |
-| Confiabilidade | RNF02: O sistema deve garantir integridade dos registros em modo offline e online | 100% dos registros criados offline devem ser sincronizados sem perda, duplicidade ou inconsistência |
-| Desempenho | RNF03: O sistema deve apresentar baixa latência nas operações de consulta | p95 < 300ms para consultas com até 100 registros |
-| Segurança | RNF04: O sistema deve garantir controle de acesso baseado em perfil de usuário | 100% das requisições devem validar autenticação e autorização antes da execução |
-| Capacidade | RNF05: O sistema deve suportar múltiplos usuários simultâneos sem degradação funcional | Suportar até 50 usuários concorrentes mantendo p95 < 500ms |
-| Portabilidade | RNF06: O sistema deve ser compatível com diferentes dispositivos e navegadores | Compatível com Chrome 120+ (Android) e Safari 17+ (iOS) |
-| Manutenibilidade | RNF07: O sistema deve permitir fácil manutenção e evolução do código | 100% das regras de negócio implementadas na camada Service, com separação entre camadas |
-| Confiabilidade | RNF08: O sistema deve garantir recuperação de dados em caso de falha | 100% dos registros locais não sincronizados devem ser recuperáveis após reinicialização |
-
-
-
-
+| Usabilidade | RNF01: O sistema deve permitir que o Capataz registre eventos operacionais com baixa carga cognitiva e fluxo contínuo | Registro concluído em no máximo 3 interações obrigatórias, sem navegação entre telas |
+| Confiabilidade | RNF02: O sistema deve garantir integridade e consistência dos dados em cenários offline e online | 100% dos registros criados offline devem ser sincronizados exatamente uma vez, sem perda, duplicidade ou inconsistência |
+| Desempenho | RNF03: O sistema deve apresentar baixa latência nas operações de consulta e leitura de dados | p95 < 300ms para consultas com até 100 registros, em ambiente com até 10 mil registros |
+| Segurança | RNF04: O sistema deve garantir autenticação e autorização baseadas em perfil em todas as operações | 100% das requisições devem passar por validação de autenticação e autorização antes da execução |
+| Capacidade | RNF05: O sistema deve suportar múltiplos usuários concorrentes sem degradação significativa de desempenho | Suportar até 50 usuários simultâneos mantendo p95 < 500ms nos endpoints críticos |
+| Portabilidade | RNF06: O sistema deve ser compatível com diferentes dispositivos e navegadores utilizados em campo | Compatibilidade com Chrome 120+ (Android) e Safari 17+ (iOS), mantendo funcionamento funcional |
+| Manutenibilidade | RNF07: O sistema deve permitir evolução e manutenção com baixo acoplamento entre camadas | 100% das regras de negócio implementadas na camada Service, com separação entre Controller, Service e Repository |
+| Compatibilidade | RNF08: O sistema deve operar corretamente em cenários de integração entre armazenamento local e remoto | Sincronização consistente entre dados locais e servidor, com taxa de erro < 1% em operações de sincronização |
